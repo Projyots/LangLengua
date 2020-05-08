@@ -13,4 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "langlengua.settings.production")
 
+#SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+
 application = get_wsgi_application()
