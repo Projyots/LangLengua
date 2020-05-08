@@ -18,7 +18,14 @@ TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = env("DJANGO_SECRET_KEY", default='CHANGEME!!!')
+
+from django.utils.crypto import get_random_string
+chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+S_KEY = get_random_string(50, chars)
+
+# print SECRET_KEY
+
+SECRET_KEY = env("DJANGO_SECRET_KEY", default=S_KEY)
 
 # Mail settings
 # ------------------------------------------------------------------------------
